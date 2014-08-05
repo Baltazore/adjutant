@@ -1,5 +1,6 @@
-require "adjutant/version"
+require 'adjutant/version'
+require 'adjutant/comment'
 
 module Adjutant
-  # Your code goes here...
+
 end
