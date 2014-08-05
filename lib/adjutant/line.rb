@@ -6,7 +6,7 @@ module Adjutant
 
     def usefull?; contain_comment? && point_of_interes? && new_added? end
 
-    def contain_comment?() line.scan(/\+\s+#{COMMENT_SIGN}/).any? end
+    def contain_comment?() line.scan(/\+\s*#{COMMENT_SIGN}/).any? end
 
     def point_of_interes?() contain_username? || contain_todo? end
 

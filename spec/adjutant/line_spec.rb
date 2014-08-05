@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Adjutant::Line do
-  let(:comment) { "+    # @baltazore don't forget to write specs!" }
+  let(:comment) { "+# @baltazore don't forget to write specs!" }
   let(:todo)    { "+    # TODO: write moar specs!" }
   let(:empty)   { "+    #" }
   let(:useless) { "class Line" }
@@ -103,5 +103,4 @@ RSpec.describe Adjutant::Line do
       expect(Adjutant::Line.new(todo).end_of_comment?).to eq(false)
     end
   end
-
 end
