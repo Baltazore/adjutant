@@ -1,19 +1,30 @@
 module Adjutant
-  Comment = Struct.new(:text) do
-    def add(comment)
-      self.text = empty? ? comment : text.concat("\\n").concat(comment)
+  Comment = Struct.new(:text, :index) do
+    def initialize(*)
+      super
+      self.index ||= 0
+    end
+
+    def add(comment, index)
+      self.index = index + 1 if empty?
+      self.text =
+        if empty?
+          comment.to_s
+        else
+          self.text + "\\n" + comment
+        end
     end
 
     def empty?
-      text.nil? || text.empty?
+      self.text.nil? || self.text.empty?
     end
 
     def reset
       self.text = nil
     end
 
-    def print(index)
-      [ text, index ]
+    def print
+      [ self.text, self.index ]
     end
   end
 end
