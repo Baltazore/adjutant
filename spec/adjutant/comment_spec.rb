@@ -29,7 +29,7 @@ RSpec.describe Adjutant::Comment do
   describe '#add' do
     let(:part1)   { "Hello" }
     let(:part2)   { "world!" }
-    let(:text)    { "Hello\\nworld!" }
+    let(:text)    { "Hello\nworld!" }
 
     it 'adds new text to empty comment' do
       comment = Adjutant::Comment.new
@@ -64,7 +64,7 @@ RSpec.describe Adjutant::Comment do
       comment = Adjutant::Comment.new
       comment.add(message, index)
       comment.add(message2, index+1)
-      expect(comment.print).to eq([message+"\\n"+message2, index+1])
+      expect(comment.print).to eq([message+"\n"+message2, index+1])
     end
   end
 

@@ -11,7 +11,7 @@ module Adjutant
         if empty?
           comment.to_s
         else
-          self.text + "\\n" + comment
+          "#{self.text}\n#{comment}"
         end
     end
 

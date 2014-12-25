@@ -28,8 +28,8 @@ RSpec.describe Adjutant::FileParser do
   let(:comments) do
     [
       [ "@Baltazore is trying to check first line comment", 1 ],
-      [ "@baltazore, Let's check multiline comments,\\nthem really rocks", 7],
-      [ "TODO:\\n- [ ] This Github flavoured markdown\\n- [ ] such nice\\n- [ ] very exciting", 11 ]
+      [ "@baltazore, Let's check multiline comments,\nthem really rocks", 7],
+      [ "TODO:\n- [ ] This Github flavoured markdown\n- [ ] such nice\n- [ ] very exciting", 11 ]
     ]
   end
   let(:file_parser) { Adjutant::FileParser.new(file) }
