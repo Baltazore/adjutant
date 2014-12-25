@@ -1,3 +1,5 @@
+require 'logger'
+
 module Adjutant
   class FileParser
 
@@ -7,30 +9,27 @@ module Adjutant
       @text = file[:patch]
       @comment = Comment.new("")
       @comments = []
+      @previous_was_usefull = false
     end
 
     def detect_comments
-      usefull = false
       lines_pushed.each_with_index do |line, index|
         line = Line.new(line)
-
-        if line.usefull? || usefull
-          usefull = true
+        if line.usefull? || @previous_was_usefull
           parse_line(line, index)
         else
-          push_comment
-          usefull = false
-
-          next
+          push_comment and next
         end
       end
-      push_comment if usefull
+
+      push_comment if @previous_was_usefull
       @comments
     end
 
     def push_comment
-      @comments << @comment.print
+      @comments << @comment.print unless comment.text.nil?
       @comment.reset
+      @previous_was_usefull = false
     end
 
     def parse_line(line, index)
@@ -38,6 +37,7 @@ module Adjutant
         push_comment
       else
         @comment.add line.usefull_text, index
+        @previous_was_usefull = true
       end
     end
 

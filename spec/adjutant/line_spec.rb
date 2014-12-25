@@ -57,17 +57,6 @@ RSpec.describe Adjutant::Line do
       end
     end
 
-    context '#new_added?' do
-      it 'returns true if line is new added' do
-        expect(Adjutant::Line.new(comment).new_added?).to eq(true)
-        expect(Adjutant::Line.new(todo).new_added?).to eq(true)
-        expect(Adjutant::Line.new(empty).new_added?).to eq(true)
-      end
-
-      it 'returns false in other cases' do
-        expect(Adjutant::Line.new(useless).new_added?).to eq(false)
-      end
-    end
   end
 
   describe '#usefull_text' do
