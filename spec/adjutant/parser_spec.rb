@@ -8,7 +8,8 @@ RSpec.describe Adjutant::Parser do
         "owner" => { "name" => 'Baltazore' },
         "name"  => "adjutant",
       },
-      "commits" => [ { "id" => "asda" }, {"id" => "asds" } ]
+      "commits" => [ { "id" => "asda" }, {"id" => "asds" } ],
+      "pusher" => { "name" => "Baltazore" },
     }
   end
   let(:parser) { Adjutant::Parser.new(json) }
@@ -19,5 +20,9 @@ RSpec.describe Adjutant::Parser do
 
   it 'fetches repo name' do
     expect(parser.repo_name).to eq('Baltazore/adjutant')
+  end
+
+  it 'gets commiter nickname' do
+    expect(parser.commiter_nickname).to eq('Baltazore')
   end
 end
