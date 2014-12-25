@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Baltazore"]
   spec.email         = ["baltazore92@gmail.com"]
   spec.summary       = %q{Gem that help parse git patch data}
-  spec.description   = %q{Ruby Gem that parse patch data for comments and TODO lists and paste them on GitHub PR.}
-  spec.homepage      = "baltazore.github.io/adjutant"
+  spec.description   = %q{Ruby Gem that parse patch data for comments and ToDo lists and paste them on GitHub PR.}
+  spec.homepage      = "http://baltazore.github.io/adjutant"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
