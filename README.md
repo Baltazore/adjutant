@@ -1,3 +1,4 @@
+# This gem was created before I discover [rugged](https://github.com/libgit2/rugged).
 # Adjutant
 
 Simply gem that helps to parse git patch data and find 'usefull' comments.
